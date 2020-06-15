@@ -1,9 +1,9 @@
-import {list} from 'postcss';
-import space from './space';
-import getIndent from './getIndent';
+import { list } from "postcss";
+import space from "./space";
+import getIndent from "./getIndent";
 
-function splitProperty (rule, prop, opts) {
-    const {breakEvery, reindent, reduce, max} = {
+function splitProperty(rule, prop, opts) {
+    const { breakEvery, reindent, reduce, max } = {
         reindent: false,
         ...opts,
     };
@@ -14,29 +14,34 @@ function splitProperty (rule, prop, opts) {
     const exploded = list.comma(property);
     if (property.length > max || reduce) {
         let indent = 0;
-        if (typeof reindent === 'function') {
+        if (typeof reindent === "function") {
             indent = reindent(rule);
         }
-        rule[prop] = exploded.reduce((lines, chunk) => {
-            if (breakEvery) {
-                lines.push(chunk);
-                return lines;
-            }
-            if (lines[lines.length - 1].length + indent <= max) {
-                const merged = `${lines[lines.length - 1]}, ${chunk}`;
-                if (indent + merged.length <= max) {
-                    lines[lines.length - 1] = merged;
+        rule[prop] = exploded
+            .reduce(
+                (lines, chunk) => {
+                    if (breakEvery) {
+                        lines.push(chunk);
+                        return lines;
+                    }
+                    if (lines[lines.length - 1].length + indent <= max) {
+                        const merged = `${lines[lines.length - 1]}, ${chunk}`;
+                        if (indent + merged.length <= max) {
+                            lines[lines.length - 1] = merged;
+                            return lines;
+                        }
+                    }
+                    lines.push(chunk);
                     return lines;
-                }
-            }
-            lines.push(chunk);
-            return lines;
-        }, [exploded.shift()]).join(',\n' + space(indent));
+                },
+                [exploded.shift()]
+            )
+            .join(",\n" + space(indent));
     }
 }
 
-export function maxAtRuleLength (rule, {maxAtRuleLength: max}) {
-    return splitProperty(rule, 'params', {
+export function maxAtRuleLength(rule, { maxAtRuleLength: max }) {
+    return splitProperty(rule, "params", {
         max,
         breakEvery: true,
         reindent: function (r) {
@@ -45,8 +50,8 @@ export function maxAtRuleLength (rule, {maxAtRuleLength: max}) {
     });
 }
 
-export function maxSelectorLength (rule, opts) {
-    return splitProperty(rule, 'selector', {
+export function maxSelectorLength(rule, opts) {
+    return splitProperty(rule, "selector", {
         max: opts.maxSelectorLength,
         reduce: true, // where possible reduce to one line
         reindent: function (r) {
@@ -55,11 +60,11 @@ export function maxSelectorLength (rule, opts) {
     });
 }
 
-export function maxValueLength (rule, {maxValueLength: max}) {
+export function maxValueLength(rule, { maxValueLength: max }) {
     if (rule.raws.value && rule.raws.value.raw) {
         rule.value = rule.raws.value.raw;
     }
-    return splitProperty(rule, 'value', {
+    return splitProperty(rule, "value", {
         max,
         breakEvery: true,
         reindent: function (r) {

@@ -1,23 +1,23 @@
-import {block as commentRegex} from 'comment-regex';
-import valueParser from 'postcss-value-parser';
-import applyTransformFeatures from './applyTransformFeatures';
-import isSassVariable from './isSassVariable';
-import walk from './walk';
+import { block as commentRegex } from "comment-regex";
+import valueParser from "postcss-value-parser";
+import applyTransformFeatures from "./applyTransformFeatures";
+import isSassVariable from "./isSassVariable";
+import walk from "./walk";
 
-export default function applyCompressed (css, opts) {
-    css.walk(rule => {
-        const {raws, type} = rule;
+export default function applyCompressed(css, opts) {
+    css.walk((rule) => {
+        const { raws, type } = rule;
         rule.raws.semicolon = false;
-        if (type === 'comment' && raws.inline) {
+        if (type === "comment" && raws.inline) {
             rule.raws.inline = null;
         }
-        if (type === 'rule' || type === 'atrule') {
-            rule.raws.between = rule.raws.after = '';
+        if (type === "rule" || type === "atrule") {
+            rule.raws.between = rule.raws.after = "";
         }
-        if (type === 'decl' && !commentRegex().test(raws.between)) {
-            rule.raws.between = ':';
+        if (type === "decl" && !commentRegex().test(raws.between)) {
+            rule.raws.between = ":";
         }
-        if (rule.type === 'decl') {
+        if (rule.type === "decl") {
             if (raws.value) {
                 rule.value = raws.value.raw.trim();
             }
@@ -26,26 +26,29 @@ export default function applyCompressed (css, opts) {
 
             walk(ast, (node, index, parent) => {
                 const next = parent.nodes[index + 1];
-                if (node.type === 'div' && node.value === ',' || node.type === 'function') {
-                    node.before = node.after = '';
+                if (
+                    (node.type === "div" && node.value === ",") ||
+                    node.type === "function"
+                ) {
+                    node.before = node.after = "";
                 }
-                if (node.type === 'space') {
-                    node.value = ' ';
-                    if (next.type === 'word' && next.value[0] === '!') {
-                        node.value = '';
+                if (node.type === "space") {
+                    node.value = " ";
+                    if (next.type === "word" && next.value[0] === "!") {
+                        node.value = "";
                     }
                 }
                 if (
-                    node.type === 'word' &&
-                    node.value === '!' &&
+                    node.type === "word" &&
+                    node.value === "!" &&
                     parent.nodes[index + 2] &&
-                    next.type === 'space' &&
-                    parent.nodes[index + 2].type === 'word'
+                    next.type === "space" &&
+                    parent.nodes[index + 2].type === "word"
                 ) {
-                    next.type = 'word';
-                    next.value = '';
+                    next.type = "word";
+                    next.value = "";
                 }
-                if (node.type === 'word') {
+                if (node.type === "word") {
                     applyTransformFeatures(node, opts);
                 }
             });
@@ -53,12 +56,12 @@ export default function applyCompressed (css, opts) {
             rule.value = ast.toString();
 
             if (isSassVariable(rule)) {
-                rule.raws.before = '';
+                rule.raws.before = "";
             }
 
             // Format `!important`
             if (rule.important) {
-                rule.raws.important = '!important';
+                rule.raws.important = "!important";
             }
 
             if (raws.value) {
@@ -67,5 +70,5 @@ export default function applyCompressed (css, opts) {
         }
     });
     // Remove final newline
-    css.raws.after = '';
+    css.raws.after = "";
 }

@@ -1,5 +1,5 @@
-import 'string.prototype.repeat';
+import "string.prototype.repeat";
 
-export default function space (amount, indent = ' ') {
+export default function space(amount, indent = " ") {
     return indent.repeat(amount);
 }
