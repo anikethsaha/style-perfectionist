@@ -1,10 +1,10 @@
 {
-  "name": "perfectionist",
-  "version": "2.4.0",
-  "description": "Beautify CSS files.",
+  "name": "style-perfectionist",
+  "version": "0.0.1",
+  "description": "Beautify your styles",
   "main": "dist/index.js",
   "bin": {
-    "perfectionist": "bin/cmd.js"
+    "style-perfectionist": "bin/cmd.js"
   },
   "files": [
     "bin",
@@ -28,13 +28,13 @@
     "pretty"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/ben-eb/perfectionist",
+  "homepage": "https://github.com/anikethsaha/style-perfectionist",
   "author": {
-    "name": "Ben Briggs",
-    "email": "beneb.info@gmail.com",
-    "url": "http://beneb.info"
+    "name": "Aniketh Saha",
+    "email": "anik220798@gmail.com",
+    "url": "https://twitter.com/__ANIX__"
   },
-  "repository": "ben-eb/perfectionist",
+  "repository": "anikethsaha/style-perfectionist",
   "dependencies": {
     "comment-regex": "^1.0.1",
     "defined": "^1.0.0",

@@ -3,7 +3,7 @@ import applyCompact from "./applyCompact";
 import applyCompressed from "./applyCompressed";
 import applyExpanded from "./applyExpanded";
 
-const perfectionist = postcss.plugin("perfectionist", (opts) => {
+const stylePerfectionist = postcss.plugin("style-perfectionist", (opts) => {
     opts = {
         format: "expanded",
         indentSize: 4,
@@ -41,13 +41,13 @@ const perfectionist = postcss.plugin("perfectionist", (opts) => {
     };
 });
 
-perfectionist.process = (css, opts = {}) => {
+stylePerfectionist.process = (css, opts = {}) => {
     opts.map = opts.map || (opts.sourcemap ? true : null);
     if (opts.syntax === "scss") {
         opts.syntax = require("postcss-scss");
     }
-    let processor = postcss([perfectionist(opts)]);
+    let processor = postcss([stylePerfectionist(opts)]);
     return processor.process(css, opts);
 };
 
-export default perfectionist;
+export default stylePerfectionist;

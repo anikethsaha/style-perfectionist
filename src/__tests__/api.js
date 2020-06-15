@@ -26,12 +26,12 @@ ava("should use the postcss plugin api", (t) => {
     );
 });
 
-ava("should test the process api of perfectionist", (t) => {
-    const css = `
-h1 { color: red; margin: auto;
-}
-`;
-    const output = perfectionist.process(css);
-    console.log(output.toString());
-    t.true(true);
-});
+// ava("should test the process api of perfectionist", (t) => {
+//     const css = `
+// h1 { color: red; margin: auto;
+// }
+// `;
+//     const output = perfectionist.process(css);
+//     console.log(output.toString());
+//     t.true(true);
+// });

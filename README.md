@@ -1,13 +1,15 @@
-# perfectionist [![Build Status](https://travis-ci.org/ben-eb/perfectionist.svg?branch=master)][ci] [![NPM version](https://badge.fury.io/js/perfectionist.svg)][npm] [![Dependency Status](https://gemnasium.com/ben-eb/perfectionist.svg)][deps]
+# style-perfectionist [![Build Status](https://travis-ci.org/anikethsaha/style-perfectionist.svg?branch=master)][ci] [![NPM version](https://badge.fury.io/js/style-perfectionist.svg)][npm] [![Dependency Status](https://gemnasium.com/anikethsaha/style-perfectionist.svg)][deps]
 
 > Beautify CSS files.
 
+This is an active development fork of [perfectionist](https://github.com/ben-eb/perfectionist) as that is deprecated.
+
 ## Install
 
-With [npm](https://npmjs.org/package/perfectionist) do:
+With [npm](https://npmjs.org/package/style-perfectionist) do:
 
 ```
-npm install perfectionist --save
+npm install style-perfectionist --save
 ```
 
 ## Example
@@ -15,8 +17,9 @@ npm install perfectionist --save
 ### Input
 
 ```css
-h1   {
-         color   :  red }
+h1 {
+    color: red;
+}
 ```
 
 ### Expanded output
@@ -30,23 +33,27 @@ h1 {
 ### Compact output
 
 ```css
-h1 { color: red; }
+h1 {
+    color: red;
+}
 ```
 
 ### Compressed output
 
 ```css
-h1{color:red}
+h1 {
+    color: red;
+}
 ```
 
 ## API
 
-### perfectionist.process(css, [options])
+### style-perfectionist.process(css, [options])
 
 #### css
 
 Type: `string`
-*Required option.*
+_Required option._
 
 Pass a CSS string to beautify it.
 
@@ -64,7 +71,7 @@ Note that this transform only applies to the `expanded` format.
 /* true */
 h1 {
     -webkit-border-radius: 12px;
-            border-radius: 12px;
+    border-radius: 12px;
 }
 
 /* false */
@@ -83,10 +90,14 @@ Set either `lower` or `upper` to transform hexadecimal colors to the according c
 
 ```css
 /* upper */
-p { color: #C8C8C8 }
+p {
+    color: #c8c8c8;
+}
 
 /* lower */
-p { color: #c8c8c8 }
+p {
+    color: #c8c8c8;
+}
 ```
 
 ##### colorShorthand
@@ -98,10 +109,14 @@ Set this to `true` to shorten hexadecimal colors.
 
 ```css
 /* true */
-p { color: #fff }
+p {
+    color: #fff;
+}
 
 /* false */
-p { color: #ffffff }
+p {
+    color: #ffffff;
+}
 ```
 
 ##### format
@@ -116,7 +131,7 @@ declarations. For more powerful compression, see [cssnano].
 ##### indentChar
 
 Type: `string`
-Default: ` ` (space)
+Default: `` (space)
 
 Specify `\t` here instead if you would like to use tabs for indentation.
 
@@ -137,10 +152,14 @@ Set this to `true` to trim leading zero for fractional numbers less than 1.
 
 ```css
 /* true */
-p { line-height: .8 }
+p {
+    line-height: 0.8;
+}
 
 /* false */
-p { line-height: 0.8 }
+p {
+    line-height: 0.8;
+}
 ```
 
 ##### trimTrailingZeros
@@ -152,10 +171,14 @@ Set this to `true` to traim trailing zeros in numbers.
 
 ```css
 /* true */
-div { top: 50px }
+div {
+    top: 50px;
+}
 
 /* false */
-div { top: 50.000px }
+div {
+    top: 50px;
+}
 ```
 
 ##### maxAtRuleLength
@@ -211,24 +234,28 @@ Set this to `true` to trim units after zero length.
 
 ```css
 /* true */
-div { padding: 0 }
+div {
+    padding: 0;
+}
 
 /* false */
-div { padding: 0px }
+div {
+    padding: 0px;
+}
 ```
 
-### `postcss([ perfectionist(opts) ])`
+### `postcss([ stylePerfectionist(opts) ])`
 
-perfectionist can also be consumed as a PostCSS plugin. See the
+style-perfectionist can also be consumed as a PostCSS plugin. See the
 [documentation](https://github.com/postcss/postcss#usage) for examples for
 your environment.
 
 ### CLI
 
-perfectionist also ships with a CLI app. To see the available options, just run:
+style-perfectionist also ships with a CLI app. To see the available options, just run:
 
 ```sh
-$ perfectionist --help
+$ style-perfectionist --help
 ```
 
 ## Usage
@@ -236,22 +263,13 @@ $ perfectionist --help
 See the [PostCSS documentation](https://github.com/postcss/postcss#usage) for
 examples for your environment.
 
-## Integrations
-
-- [Sublime Text plugin](https://github.com/yisibl/sublime-perfectionist)
-- [Atom plugin](https://github.com/sindresorhus/atom-perfectionist)
-
 ## Contributing
 
 Pull requests are welcome. If you add functionality, then please add unit tests
 to cover it.
 
-## License
-
-MIT © [Ben Briggs](http://beneb.info)
-
-[ci]:      https://travis-ci.org/ben-eb/perfectionist
-[cssnano]: https://github.com/ben-eb/cssnano
-[deps]:    https://gemnasium.com/ben-eb/perfectionist
-[npm]:     http://badge.fury.io/js/perfectionist
+[ci]: https://travis-ci.org/anikethsaha/style-perfectionist
+[cssnano]: https://github.com/anikethsaha/cssnano
+[deps]: https://gemnasium.com/anikethsaha/style-perfectionist
+[npm]: http://badge.fury.io/js/style-perfectionist
 [postcss]: https://github.com/postcss/postcss
