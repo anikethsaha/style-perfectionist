@@ -16,8 +16,7 @@
     "prepublish": "npm run builld",
     "build": "del-cli dist && cross-env BABEL_ENV=publish babel src --out-dir dist --ignore \"**/__tests__/\"",
     "report": "nyc report --reporter=html",
-    "test": "cross-env BABEL_ENV=test nyc ava",
-    "test-012": "cross-env BABEL_ENV=test nyc ava"
+    "test": "cross-env BABEL_ENV=test nyc ava"
   },
   "keywords": [
     "beautify",

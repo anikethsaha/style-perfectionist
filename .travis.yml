@@ -3,9 +3,9 @@ sudo: false
 language: node_js
 matrix:
   include:
-    - node_js: '5'
-    - node_js: '4'
-    - node_js: '0.12'
+    - node_js: "10"
+    - node_js: "12"
+    - node_js: "14"
       env: NO_ESLINT=true
 
-script: "[[ $NO_ESLINT == true ]] && npm run test-012 || npm test"
+script: "npm run build && npm run test"
