@@ -1,4 +1,4 @@
-# style-perfectionist [![Build Status](https://travis-ci.org/anikethsaha/style-perfectionist.svg?branch=master)][ci] [![NPM version](https://badge.fury.io/js/style-perfectionist.svg)][npm] [![Dependency Status](https://gemnasium.com/anikethsaha/style-perfectionist.svg)][deps]
+# style-perfectionist [![Build Status](https://travis-ci.org/anikethsaha/style-perfectionist.svg?branch=master)][ci] [![NPM version](https://badge.fury.io/js/style-perfectionist.svg)][npm]
 
 > Beautify CSS files.
 
