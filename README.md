@@ -17,9 +17,8 @@ npm install style-perfectionist --save
 ### Input
 
 ```css
-h1 {
-    color: red;
-}
+h1   {
+         color   :  red }
 ```
 
 ### Expanded output
@@ -33,22 +32,18 @@ h1 {
 ### Compact output
 
 ```css
-h1 {
-    color: red;
-}
+h1 { color: red; }
 ```
 
 ### Compressed output
 
 ```css
-h1 {
-    color: red;
-}
+h1{color:red}
 ```
 
 ## API
 
-### style-perfectionist.process(css, [options])
+### stylePerfectionist.process(css, [options])
 
 #### css
 
