@@ -64,9 +64,10 @@ Note that this transform only applies to the `expanded` format.
 
 ```css
 /* true */
+/* true */
 h1 {
     -webkit-border-radius: 12px;
-    border-radius: 12px;
+            border-radius: 12px;
 }
 
 /* false */
@@ -85,14 +86,10 @@ Set either `lower` or `upper` to transform hexadecimal colors to the according c
 
 ```css
 /* upper */
-p {
-    color: #c8c8c8;
-}
+p { color: #C8C8C8 }
 
 /* lower */
-p {
-    color: #c8c8c8;
-}
+p { color: #c8c8c8 }
 ```
 
 ##### colorShorthand
@@ -104,14 +101,10 @@ Set this to `true` to shorten hexadecimal colors.
 
 ```css
 /* true */
-p {
-    color: #fff;
-}
+p { color: #fff }
 
 /* false */
-p {
-    color: #ffffff;
-}
+p { color: #ffffff }
 ```
 
 ##### format
@@ -147,14 +140,10 @@ Set this to `true` to trim leading zero for fractional numbers less than 1.
 
 ```css
 /* true */
-p {
-    line-height: 0.8;
-}
+p { line-height: .8 }
 
 /* false */
-p {
-    line-height: 0.8;
-}
+p { line-height: 0.8 }
 ```
 
 ##### trimTrailingZeros
@@ -166,14 +155,10 @@ Set this to `true` to traim trailing zeros in numbers.
 
 ```css
 /* true */
-div {
-    top: 50px;
-}
+div { top: 50px }
 
 /* false */
-div {
-    top: 50px;
-}
+div { top: 50.000px }
 ```
 
 ##### maxAtRuleLength
@@ -229,14 +214,10 @@ Set this to `true` to trim units after zero length.
 
 ```css
 /* true */
-div {
-    padding: 0;
-}
+div { padding: 0 }
 
 /* false */
-div {
-    padding: 0px;
-}
+div { padding: 0px }
 ```
 
 ### `postcss([ stylePerfectionist(opts) ])`
