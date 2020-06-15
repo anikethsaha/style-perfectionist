@@ -11,6 +11,9 @@
     "LICENSE-MIT",
     "dist"
   ],
+  "engines": {
+    "node": ">=10.18.0"
+  },
   "scripts": {
     "pretest": "eslint src --fix",
     "prepublish": "npm run builld",
