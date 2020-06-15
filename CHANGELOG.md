@@ -1,3 +1,16 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### 0.0.1 (2020-06-15)
+
+
+### Build System
+
+* fixed typo for prepublish script ([f1a1f40](https://github.com/anikethsaha/style-perfectionist/commit/f1a1f40))
+
+
+
 # 2.4.0
 
 * Adds support for tab indentation (thanks to @solidflows).
