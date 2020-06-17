@@ -14,11 +14,7 @@ function setup(args) {
 
 ava("cli: defaults", (t) => {
     return setup([fixture]).then(({ stdout }) => {
-        t.deepEqual(
-            stdout,
-            read("./fixtures/nested.expanded.css", "utf-8"),
-            "should transform the css"
-        );
+        t.snapshot(stdout);
     });
 });
 
@@ -38,5 +34,47 @@ ava("cli: sourcemaps", (t) => {
             stdout
         );
         t.truthy(hasMap, "should generate a sourcemap");
+    });
+});
+
+ava("cli: config : empty", (t) => {
+    return setup([
+        fixture,
+        "-c",
+        path.join(__dirname, "./config-fixtures/empty"),
+    ]).then(({ stdout }) => {
+        t.snapshot(
+            stdout,
+            read("./fixtures/nested.expanded.css", "utf-8"),
+            "should transform the css as default config"
+        );
+    });
+});
+
+ava("cli: config : compact", (t) => {
+    return setup([
+        fixture,
+        "-c",
+        path.join(__dirname, "./config-fixtures/compact"),
+    ]).then(({ stdout }) => {
+        t.snapshot(
+            stdout,
+            read("./fixtures/nested.compact.css", "utf-8"),
+            "should transform the css as compact format"
+        );
+    });
+});
+
+ava("cli: config : compressed", (t) => {
+    return setup([
+        fixture,
+        "-c",
+        path.join(__dirname, "./config-fixtures/compressed"),
+    ]).then(({ stdout }) => {
+        t.snapshot(
+            stdout,
+            read("./fixtures/nested.compressed.css", "utf-8"),
+            "should transform the css as compact format"
+        );
     });
 });

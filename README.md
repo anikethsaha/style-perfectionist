@@ -234,6 +234,22 @@ style-perfectionist also ships with a CLI app. To see the available options, jus
 $ style-perfectionist --help
 ```
 
+
+#### config file. 
+
+We support loading using config file. 
+
+The recommended config file name should be `.style-perfectionistrc` or `.style-perfectionistrc.js` or `.style-perfectionist.yml`. 
+For supportting extension and name format, refer [this](https://github.com/davidtheclark/cosmiconfig#explorersearch).
+
+Examples 
+
+```shell
+$ style-perfectionist -c .
+$ style-perfectionist -c .style-perfectionistrc
+$ style-perfectionist -c ../style-perfectionist.config.js
+```
+
 ## Usage
 
 See the [PostCSS documentation](https://github.com/postcss/postcss#usage) for

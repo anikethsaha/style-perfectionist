@@ -4,6 +4,10 @@ var fs = require("fs");
 var perfectionist = require("../dist").default;
 var read = require("read-file-stdin");
 var write = require("write-file-stdout");
+const path = require('path')
+const { cosmiconfig, cosmiconfigSync } = require('cosmiconfig');
+
+const explorer = cosmiconfig('style-perfectionist');
 
 var opts = require("minimist")(process.argv.slice(2), {
     alias: {
@@ -11,7 +15,8 @@ var opts = require("minimist")(process.argv.slice(2), {
         h: "help",
         s: "sourcemap",
         t: "syntax",
-        v: "version"
+        v: "version",
+        c: "config"
     }
 });
 
@@ -31,15 +36,31 @@ if (file === "help" || opts.help) {
         });
 }
 
-read(file, function(err, buf) {
-    if (err) {
-        throw err;
+explorer.search(path.resolve(process.cwd(), opts.c || '') )
+  .then((result) => {
+    if(result && result.config && result.filepath){
+        const {config, filepath} = result;
+        opts = {
+            ...opts,
+            ...config,
+        }
+        delete opts.config;
+        delete opts.c;    
     }
-    if (file) {
-        opts.from = file;
-    }
-    if (out) {
-        opts.to = out;
-    }
-    write(out, String(perfectionist.process(String(buf), opts)));
-});
+    read(file, function(err, buf) {
+        if (err) {
+            throw err;
+        }
+        if (file) {
+            opts.from = file;
+        }
+        if (out) {
+            opts.to = out;
+        }
+        write(out, String(perfectionist.process(String(buf), opts)));
+    });
+
+  })
+
+
+

@@ -12,3 +12,5 @@ Options:
     --version,    -v    Outputs the version number.
 
     --help,       -h    Outputs this help screen.
+
+    --config,     -c    Path to config file '.style-perfectionistrc'
