@@ -26,11 +26,37 @@ ava("should use the postcss plugin api", (t) => {
     );
 });
 
-ava("should test the process api of perfectionist", (t) => {
-    const css = `
+ava(
+    "should not remove the 0.0 while removing the trailing and leading zeroes",
+    (t) => {
+        const css = `
 h1 { color: red; margin: 000.0; z-index: 1.0; padding: 000.1
 }
 `;
-    const output = perfectionist.process(css);
+        const output = perfectionist.process(css);
+        t.snapshot(output.toString());
+    }
+);
+
+ava("should not split comments using comman, issue #3", (t) => {
+    const css = `
+  /* below selector has a ton of weight, better to override it with  class selectors that unset box-shadow and rules here. Testable  on the repo tag editor */
+`;
+    const options = {
+        indentSize: 2,
+        maxAtRuleLength: 250,
+    };
+    const output = perfectionist.process(css, options);
     t.snapshot(output.toString());
 });
+
+ava(
+    "should not split comments using comman, issue #3 with default options",
+    (t) => {
+        const css = `
+  /* some , comments, separate , with comma */
+`;
+        const output = perfectionist.process(css);
+        t.snapshot(output.toString());
+    }
+);
