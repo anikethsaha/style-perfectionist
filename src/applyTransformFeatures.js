@@ -91,6 +91,7 @@ export default function applyTransformFeatures(node, opts) {
             post = "." + parts[1];
         }
 
-        node.value = pre + post + pair.unit;
+        node.value =
+            ((pre + post).trim() === "" ? "0" : pre + post) + pair.unit;
     }
 }
