@@ -12,13 +12,35 @@ With [npm](https://npmjs.org/package/style-perfectionist) do:
 npm install style-perfectionist --save
 ```
 
+## For browser
+
+add the following script
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/style-perfectionist/dist/standalone.js"></script>
+```
+
+And to use it,
+
+```html
+<script>
+    console.log(window.stylePerfectionist.process("h1{}", {}).toString());
+    /*
+        output:
+            h1{
+            }
+    */
+</script>
+```
+
 ## Example
 
 ### Input
 
 ```css
-h1   {
-         color   :  red }
+h1 {
+    color: red;
+}
 ```
 
 ### Expanded output
@@ -32,13 +54,17 @@ h1 {
 ### Compact output
 
 ```css
-h1 { color: red; }
+h1 {
+    color: red;
+}
 ```
 
 ### Compressed output
 
 ```css
-h1{color:red}
+h1 {
+    color: red;
+}
 ```
 
 ## API
@@ -67,7 +93,7 @@ Note that this transform only applies to the `expanded` format.
 /* true */
 h1 {
     -webkit-border-radius: 12px;
-            border-radius: 12px;
+    border-radius: 12px;
 }
 
 /* false */
@@ -86,10 +112,14 @@ Set either `lower` or `upper` to transform hexadecimal colors to the according c
 
 ```css
 /* upper */
-p { color: #C8C8C8 }
+p {
+    color: #c8c8c8;
+}
 
 /* lower */
-p { color: #c8c8c8 }
+p {
+    color: #c8c8c8;
+}
 ```
 
 ##### colorShorthand
@@ -101,10 +131,14 @@ Set this to `true` to shorten hexadecimal colors.
 
 ```css
 /* true */
-p { color: #fff }
+p {
+    color: #fff;
+}
 
 /* false */
-p { color: #ffffff }
+p {
+    color: #ffffff;
+}
 ```
 
 ##### format
@@ -140,10 +174,14 @@ Set this to `true` to trim leading zero for fractional numbers less than 1.
 
 ```css
 /* true */
-p { line-height: .8 }
+p {
+    line-height: 0.8;
+}
 
 /* false */
-p { line-height: 0.8 }
+p {
+    line-height: 0.8;
+}
 ```
 
 ##### trimTrailingZeros
@@ -155,10 +193,14 @@ Set this to `true` to traim trailing zeros in numbers.
 
 ```css
 /* true */
-div { top: 50px }
+div {
+    top: 50px;
+}
 
 /* false */
-div { top: 50.000px }
+div {
+    top: 50px;
+}
 ```
 
 ##### maxAtRuleLength
@@ -214,10 +256,14 @@ Set this to `true` to trim units after zero length.
 
 ```css
 /* true */
-div { padding: 0 }
+div {
+    padding: 0;
+}
 
 /* false */
-div { padding: 0px }
+div {
+    padding: 0px;
+}
 ```
 
 ### `postcss([ stylePerfectionist(opts) ])`
@@ -234,15 +280,14 @@ style-perfectionist also ships with a CLI app. To see the available options, jus
 $ style-perfectionist --help
 ```
 
+#### config file.
 
-#### config file. 
+We support loading using config file.
 
-We support loading using config file. 
-
-The recommended config file name should be `.style-perfectionistrc` or `.style-perfectionistrc.js` or `.style-perfectionist.yml`. 
+The recommended config file name should be `.style-perfectionistrc` or `.style-perfectionistrc.js` or `.style-perfectionist.yml`.
 For supportting extension and name format, refer [this](https://github.com/davidtheclark/cosmiconfig#explorersearch).
 
-Examples 
+Examples
 
 ```shell
 $ style-perfectionist -c .
