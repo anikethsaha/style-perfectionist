@@ -21,10 +21,10 @@ class ConfigViewController extends Component {
     render() {
         return (
             <Editor
-                value={JSON.stringify(this.context.config, null, 4)}
+                value={JSON.stringify(JSON.parse(this.context.config), null, 4)}
                 style={{ width: '100%', height: '100%' }}
                 justifyContent="center"
-                onChange={(val) => this.context.setConfig(JSON.stringify(val))}
+                onChange={(val) =>this.context.setConfig(val)}
                 options={options}
             />
         );

@@ -33,7 +33,7 @@ function Index() {
     const [output, setOutput] = useState('');
     const [formatting, setFormatting] = useState(false);
     const [configPanel, setConfigPanel] = useState(false);
-    const [config, setConfig] = useState(initialConfig);
+    const [config, setConfig] = useState(JSON.stringify(initialConfig));
     const [playgroundInfo, setPlaygroundInfo] = useState({});
     const [controllerItem, setControllerItem] = useState('configView');
 

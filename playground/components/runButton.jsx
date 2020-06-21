@@ -11,7 +11,7 @@ const RunButton = () => {
 
     const transformCode = async () => {
         setFormatting(true);
-        const output = await stylePerfectionist.process(input, JSON.parse(JSON.parse(config)));
+        const output = await stylePerfectionist.process(input, JSON.parse(config));
         setOutput(output.css);
         setFormatting(false);
     };
