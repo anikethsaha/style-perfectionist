@@ -35,6 +35,8 @@ And to use it,
 </script>
 ```
 
+[Check the live example here](https://jsfiddle.net/anikethsaha/mfebL26z/85/)
+
 ## Example
 
 ### Input
