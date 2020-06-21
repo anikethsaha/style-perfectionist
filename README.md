@@ -1,3 +1,5 @@
+![logo](https://github.com/anikethsaha/style-perfectionist/blob/master/style-perfectionist-logo.JPG)
+
 # style-perfectionist [![Build Status](https://travis-ci.org/anikethsaha/style-perfectionist.svg?branch=master)][ci] [![NPM version](https://badge.fury.io/js/style-perfectionist.svg)][npm]
 
 > Beautify CSS files.
