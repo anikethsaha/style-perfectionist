@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.0](https://github.com/anikethsaha/style-perfectionist/compare/v0.0.1...v1.0.0-alpha.0) (2020-06-21)
+
+
+### Bug Fixes
+
+* added tests to check comments comma separation (fixes [#3](https://github.com/anikethsaha/style-perfectionist/issues/3)) ([363366a](https://github.com/anikethsaha/style-perfectionist/commit/363366a))
+* fixed inconsistency in config loading ([5883405](https://github.com/anikethsaha/style-perfectionist/commit/5883405))
+* fixed removal of 0.0 (fixes [#2](https://github.com/anikethsaha/style-perfectionist/issues/2)) ([fcbef36](https://github.com/anikethsaha/style-perfectionist/commit/fcbef36))
+
+
+### Features
+
+* added standalone build for browser (fixes [#6](https://github.com/anikethsaha/style-perfectionist/issues/6)) ([a38e0a3](https://github.com/anikethsaha/style-perfectionist/commit/a38e0a3))
+* config file (fixes [#1](https://github.com/anikethsaha/style-perfectionist/issues/1)) ([18f0790](https://github.com/anikethsaha/style-perfectionist/commit/18f0790))
+* playground initial ([b1787f1](https://github.com/anikethsaha/style-perfectionist/commit/b1787f1))
+
+
+
 ### 0.0.1 (2020-06-15)
 
 
